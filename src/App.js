@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import moment from 'moment';
+import 'moment/locale/zh-tw';
+import Header from './components/Header';
+import Main from './views/Main';
+import SideMenu from './components/SideMenu';
+import Footer from './components/Footer';
+
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    moment.locale('zh-tw');
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="main">
+        <SideMenu />
+        <Main />
+      </div>
+      <Footer />
+      {/* <footer>fake footer</footer> */}
     </div>
   );
 }
